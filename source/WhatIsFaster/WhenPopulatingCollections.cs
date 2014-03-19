@@ -9,7 +9,7 @@ using System.Diagnostics;
 namespace WhatIsFaster
 {
 	[TestFixture]
-	public class CollectionPopulating
+	public class WhenPopulatingCollections
 	{
 		private const int amount_of_iterations = 1000000;
 		private Stopwatch stopwatch { get; set; }
@@ -33,7 +33,7 @@ namespace WhatIsFaster
 		}
 
 		[Test]
-		public void Populate_Collection_As_Array()
+		public void Duration_Of_Populate_Collection_As_Array()
 		{
 			// arrange
 			var collection = new int[amount_of_iterations];
@@ -49,23 +49,7 @@ namespace WhatIsFaster
 		}
 
 		[Test]
-		public void Populate_Collection_As_List()
-		{
-			// arrange
-			var collection = new List<int> ();
-
-			// act
-			for (int i = 0; i < amount_of_iterations; i++) {
-				collection.Add (i);
-			}
-
-			// assert
-			StopMeasuring ("PopulateCollection_As_List");
-			collection.Count.Should ().Be (amount_of_iterations, "Unexpected amount of iterations");
-		}
-
-		[Test]
-		public void Populate_Collection_As_ConcurrentBag()
+		public void Duration_Of_Populate_Collection_As_ConcurrentBag()
 		{
 			// arrange
 			var collection = new ConcurrentBag<int> ();
@@ -80,7 +64,22 @@ namespace WhatIsFaster
 			collection.Count.Should ().Be (amount_of_iterations, "Unexpected amount of iterations");
 		}
 
+		[Test]
+		public void Duration_Of_Populate_Collection_As_List()
+		{
+			// arrange
+			var collection = new List<int> ();
 
+			// act
+			for (int i = 0; i < amount_of_iterations; i++) {
+				collection.Add (i);
+			}
+
+			// assert
+			StopMeasuring ("PopulateCollection_As_List");
+			collection.Count.Should ().Be (amount_of_iterations, "Unexpected amount of iterations");
+		}
+			
 	}
 }
 
