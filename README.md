@@ -9,3 +9,5 @@ The scenarios are:
 **[Scenario - Populating Collections](https://github.com/hanssens/WhatIsFaster/blob/master/source/WhatIsFaster/Scenarios/WhenPopulatingCollections.cs)**  
 How do these collections perform when adding a lots of records; array[], List<T> or ConcurrentBag<T>?
 
+**[Scenario - Populating Collections (Parallel)](https://github.com/hanssens/WhatIsFaster/blob/master/source/WhatIsFaster/Scenarios/PopulatingCollectionsParallel.cs)**  
+Identical to 'Populating Collections', only now in parallel.
